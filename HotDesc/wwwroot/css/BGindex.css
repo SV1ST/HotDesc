@@ -1,0 +1,51 @@
+﻿body {
+    background-image: url(../img/loginRegistation.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+div.lp {
+    padding-left: 40%;
+    color: #fff;
+    
+}
+table {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    text-align: left;
+    border-collapse: separate;
+    border-spacing: 5px;
+    background: #c2f1ff;
+    color: #fff;
+    border: 16px solid #e8f8ff;
+    border-radius: 20px;
+    margin-top: 10%;
+}
+th {
+    font-size: 18px;
+    padding: 10px;
+}
+td {
+    background: #5879bf;
+    padding: 10px;
+}
+input[type="submit"] {
+    border-radius: 20px;
+    padding: 10px;
+    color: #fff;
+    border: 2px solid #fff;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    margin: 10px 100px;
+    background-color: transparent;
+    font-family: Pacifico-Regular;
+}
+input[type="submit"]:hover {
+    border-radius: 20px;
+    padding: 10px;
+    color: #000000;
+    border: 2px solid #fff;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    margin: 10px 100px;
+    background-color: #fff;
+}

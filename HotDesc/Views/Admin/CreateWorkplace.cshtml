@@ -1,0 +1,27 @@
+﻿@model IEnumerable<HotDesc.Models.Workplace>
+@{
+    ViewData["Title"] = "CreateWorkplace";
+    Layout = "_LayoutForAdmin";
+}
+<link rel="stylesheet" type="text/css" href="/css/BGindex.css" />
+<body>
+    <table class="table">
+        <thead>
+            <tr><td></td><td>ReservationCode</td><td>Devices</td><td>Description</td><td>Busy?</td></tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr><td>@item.Id</td><td>@item.ReservationId</td><td>@item.Devices</td><td>@item.Description</td><td>@item.IsInUse</td></tr>
+        }
+    </table>
+    <div class="lp">
+        <form method="post" asp-action="CreateWorkplace" asp-controller="Admin">
+            <div class="lbl">
+                <strong for="id">Enter Description For New Workplace</strong>
+                <input type="text" name="id"  placeholder="Description" />
+                <input type="submit" value="Create" />
+            </div>
+        </form>
+    </div>
+</body>
+

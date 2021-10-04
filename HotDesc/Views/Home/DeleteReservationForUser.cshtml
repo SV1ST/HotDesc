@@ -1,0 +1,38 @@
+﻿@model IEnumerable<HotDesc.Models.Reservation>
+@{
+    ViewData["Title"] = "DeleteReservation";
+    Layout = "_LayoutForUser";
+}
+<link rel="stylesheet" type="text/css" href="/css/BGindex.css" />
+<body>
+    <table class="table">
+        <tr><td>Id</td><td>Id Worker</td><td>Date</td></tr>
+        @foreach (var item in Model)
+        {
+
+            if (item.EmployeeId != Convert.ToInt32(User.Claims.First(x => x.Type == "Id").Value))
+            {
+                continue;
+            }
+            <tr><td>@item.Id</td><td>@item.EmployeeId</td><td>@item.Date</td></tr>
+        }
+    </table>
+    <div class="lp">
+        <form method="post" asp-action="DeleteReservationForUser">
+            <div class="lbl">
+                <strong for="id">Select the entry to delete</strong>
+                <select name="id">
+                    @foreach (var item in Model)
+                    {
+                        if (item.EmployeeId != Convert.ToInt32(User.Claims.First(x => x.Type == "Id").Value))
+                        {
+                            continue;
+                        }
+                        <option value="@item.Id">@item.Id</option>
+                    }
+                </select>
+                <input type="submit" value="Delete" />
+            </div>
+        </form>
+    </div>
+</body>

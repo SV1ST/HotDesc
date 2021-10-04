@@ -1,0 +1,21 @@
+﻿@model IEnumerable<HotDesc.Models.Workplace>
+@{
+    Layout = "_LayoutForUser";
+    ViewData["Title"] = "Home Page";
+}
+<link rel="stylesheet" type="text/css" href="/css/BGindex.css" />
+<body>
+    <table class="table">
+        <thead>
+            <tr><td></td><td>ReservationCode</td><td>Devices</td><td>Description</td><td>Busy?</td></tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr><td>@item.Id</td><td>@item.ReservationId</td><td>@item.Devices</td><td>@item.Description</td><td>@item.IsInUse</td></tr>
+        }
+    </table>
+</body>
+
+
+

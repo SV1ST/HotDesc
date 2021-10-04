@@ -1,0 +1,68 @@
+﻿@model IEnumerable<HotDesc.Models.Workplace>
+@{ 
+    ViewData["Title"] = "Create Reservation";
+    Layout = "_LayoutForUser";
+}
+
+<link rel="stylesheet" type="text/css" href="/css/BGindex.css" />
+<body>
+        <table class="table">
+            <thead>
+                <tr><td></td><td>Devices</td><td>Description</td></tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                if (@item.IsInUse == true)
+                    continue;
+                <tr><td>@item.Id</td><td>@item.Devices</td><td>@item.Description</td></tr>
+            }
+        </table>     
+        <div class="lp">
+            <form method="post" asp-action="Book" asp-controller="Home">
+
+                <strong>Choose your devices:</strong>
+
+                <div>
+                    @Html.CheckBox("mouse", false)
+                    @*<input type="checkbox" id="mouse" name="mouse">*@
+                    <strong for="mouse">Mouse</strong>
+                </div>
+
+                <div>
+                    @Html.CheckBox("keyboard", false)
+                    <strong for="keyboard">Keyboard</strong>
+                </div>
+
+                <div>
+                    @Html.CheckBox("systemUnit", false)
+                    <strong for="systemUnit">System unit</strong>
+                </div>
+
+                <div>
+                    @Html.CheckBox("monitor", false)
+                    <strong for="monitor">Monitor</strong>
+                </div>
+
+                <div>
+                    @Html.CheckBox("notebook", false)
+                    <strong for="notebook">Notebook</strong>
+                </div>
+
+                <div class="lbl">
+                    <strong>Choose a workplace</strong>
+                    <select name="workplaces">
+                        @foreach (var item in Model)
+                        {
+                            if (item.IsInUse == true)
+                                continue;
+                            <option name="workplaces" value="@item.Id">@item.Id</option>
+                        }
+                    </select>
+                    <input type="submit" value="Select" />
+                </div>
+
+            </form>
+        </div>
+</body>
+
